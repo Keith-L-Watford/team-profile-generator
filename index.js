@@ -11,30 +11,37 @@ const allQuestions = [
         type: 'input',
         name: 'name',
         message: 'Please enter your name.',
-     }
+     },
      {
         type: 'numbers',
         name: 'id',
         message: 'Please enter your id number.',
-     }
+     },
      {
         type: 'input',
         name: 'email',
         message: 'Please enter your email.',
-     }
+     },
      {
         type: 'list',
         name: 'position',
         message: 'What is your position?',
         choices: ["Manager", 'Engineer', 'Intern'],
         default: 'Engineer',
-     }
+     },
 ]
 
 
 
-    inquirer.prompt(questions).then((answers) => {
-  console.log(JSON.stringify(answers, null, '  '));
+    inquirer.prompt(allQuestions).then((answers) => {
+        console.log(answers.employee);
+        console.log(answers.email);
+        console.log(answers.name);
+        console.log(answers.id);
+        console.log(answers.position);
+
+
+//   console.log(JSON.stringify(answers, null, '  '));
 });
 
 
