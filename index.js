@@ -1,59 +1,80 @@
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 
+const allQuestions = [
+    {
+        type: 'confirm',
+        message: 'Are you an employee?',
+        name: 'employee',
+    },
+    {
+        type: 'input',
+        name: 'name',
+        message: 'Please enter your name.',
+     }
+     {
+        type: 'numbers',
+        name: 'id',
+        message: 'Please enter your id number.',
+     }
+     {
+        type: 'input',
+        name: 'email',
+        message: 'Please enter your email.',
+     }
+     {
+        type: 'list',
+        name: 'position',
+        message: 'What is your position?',
+        choices: ["Manager", 'Engineer', 'Intern'],
+        default: 'Engineer',
+     }
+]
+
+
+
+    inquirer.prompt(questions).then((answers) => {
+  console.log(JSON.stringify(answers, null, '  '));
+});
 
 
 
 
-inquirer.prompt([{
-            type: 'confirm',
-            message: 'Are you an employee?',
-            name: 'employee',
-        },
-        // {    
-        //     type: 'list',
-        //     message: 'What is your role?',
-        //     choices:['Manager', 'Engineer', 'Employee', 'Intern'],
-        //     name: 'role',
-        //     default: '',
-        // },
-    ]).then((answers) => {
-        // Use user feedback for... whatever!!
-
-        
-
-        if (answers.employee === false) {
-            return inquirer.prompt({
-                type: 'text',
-                name: 'height',
-                message: 'What is your height?',
-            });
-        } else {
-            console.log("You dont work here.");
-        }
-    }).then((esponse2) => {
-
-    
-    // console.log(response2.color);
-    // console.log(answers.employee);
-    console.log(response2.height);
-    })
 
 
 
 
 
-
-y
-
-
-
-// }
-// }
 // const customHTML;
 //     fs.writeFile('', customHTML, (err) =>
 //     err ? console.error(err) : console.log('Success!')
 // );
+
+
+
+
+
+
+
+// inquirer.prompt([{
+//             type: 'confirm',
+//             message: 'Are you an employee?',
+//             name: 'employee',
+//         },
+//         // {    
+//         //     type: 'list',
+//         //     message: 'What is your role?',
+//         //     choices:['Manager', 'Engineer', 'Employee', 'Intern'],
+//         //     name: 'role',
+//         //     default: '',
+//         // },
+//     ])
+
+
+
+
+
+
 
 
 // GIVEN a command-line application that accepts user input
