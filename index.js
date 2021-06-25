@@ -5,38 +5,55 @@ const chalk = require('chalk');
 
 
 
-inquirer.prompt ([
-    {
-        type: 'list',
-        message: 'What is your role?',
-        choices:['Manager', 'Engineer', 'Employee', 'Intern'],
-        name: 'role',
-        default: 'Employee',
-    },
-])
-.then((answers) => {
-    // Use user feedback for... whatever!!
+inquirer.prompt([{
+            type: 'confirm',
+            message: 'Are you an employee?',
+            name: 'employee',
+        },
+        // {    
+        //     type: 'list',
+        //     message: 'What is your role?',
+        //     choices:['Manager', 'Engineer', 'Employee', 'Intern'],
+        //     name: 'role',
+        //     default: '',
+        // },
+    ]).then((answers) => {
+        // Use user feedback for... whatever!!
 
-const customHTML;
+        
+
+        if (answers.employee === false) {
+            return inquirer.prompt({
+                type: 'text',
+                name: 'height',
+                message: 'What is your height?',
+            });
+        } else {
+            console.log("You dont work here.");
+        }
+    }).then((esponse2) => {
+
+    
+    // console.log(response2.color);
+    // console.log(answers.employee);
+    console.log(response2.height);
+    })
 
 
 
-    fs.writeFile('', customHTML, (err) =>
-    err ? console.error(err) : console.log('Success!')
-);
-
-  })
 
 
 
+y
 
 
 
-
-
-
-
-
+// }
+// }
+// const customHTML;
+//     fs.writeFile('', customHTML, (err) =>
+//     err ? console.error(err) : console.log('Success!')
+// );
 
 
 // GIVEN a command-line application that accepts user input
