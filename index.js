@@ -57,14 +57,33 @@ let init = () => {
          name: 'email',
          message: 'Please enter your email.',
       },
+      // {
+      //    type: 'input',
+      //    name: 'office',
+      //    message: 'Please enter your office number',
+      // },
       {
+      type: 'list',
+      name: 'position',
+      message: 'What is your position?',
+      choices: ["Manager", 'Engineer', 'Intern'],
+      default: 'Engineer',
+   }
+   ]).then((dataOne) => {
+      // const managerInfo = new Manager(dataOne.name, dataOne.id, dataOne.email, dataOne.office)
+      // console.log(managerInfo);
+
+      // const role;
+      let role = dataOne.role
+
+      if (role === "Manager") {
+         inquirer.prompt([{
          type: 'input',
          name: 'office',
-         message: 'Please enter your office number',
-      }
-   ]).then((dataOne) => {
-      const managerInfo = new Manager(dataOne.name, dataOne.id, dataOne.email, dataOne.office)
-      console.log(managerInfo);
+         message: 'Please enter your office number',}])
+      } 
+
+
    })
 
 
