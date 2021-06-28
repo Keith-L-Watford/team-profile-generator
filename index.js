@@ -1,8 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs')
 const chalk = require('chalk');
+const Employee = require("./lib/employee")
 
-const allQuestions = [{
+const firstQuestions = [{
       type: 'confirm',
       message: 'Are you an employee?',
       name: 'employee',
@@ -32,16 +33,23 @@ const allQuestions = [{
 ]
 
 
+let myTeam = []
+
+let init = () => {
+   // put inquierer in here
+   inquirer.prompt([{
+      // team manager’s name, employee ID, email address, and office number
+
+   }]).then((response) => {
+      // const myNewEmployee = new
+
+   })
+}
 
 inquirer.prompt(allQuestions).then((answers) => {
-   console.log(answers.employee);
-   console.log(answers.email);
-   console.log(answers.name);
-   console.log(answers.id);
-   console.log(answers.position);
+   
 
 
-   //   console.log(JSON.stringify(answers, null, '  '));
 });
 
 
@@ -63,26 +71,6 @@ inquirer.prompt(allQuestions).then((answers) => {
 
 
 
-// inquirer.prompt([{
-//             type: 'confirm',
-//             message: 'Are you an employee?',
-//             name: 'employee',
-//         },
-//         // {    
-//         //     type: 'list',
-//         //     message: 'What is your role?',
-//         //     choices:['Manager', 'Engineer', 'Employee', 'Intern'],
-//         //     name: 'role',
-//         //     default: '',
-//         // },
-//     ])
-
-
-
-
-
-
-
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
@@ -96,24 +84,13 @@ inquirer.prompt(allQuestions).then((answers) => {
 
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-const Employee = require("./lib/employee")
+
 const fs = require("fs")
 // create a empty array of team members
 // make sure that its has its .legnth === 5
 
 
-let init() = () => {
-   // put inquierer in here
-   inquirer.prompt([{
-      // team manager’s name, employee ID, email address, and office number
 
-   }]).then((response) => {
-      const myNewEmployee = new
-
-   })
-}
-
-}
 
 
 
