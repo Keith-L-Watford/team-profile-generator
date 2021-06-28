@@ -1,47 +1,47 @@
 const inquirer = require('inquirer');
+const fs = require('fs')
 const chalk = require('chalk');
 
-const allQuestions = [
-    {
-        type: 'confirm',
-        message: 'Are you an employee?',
-        name: 'employee',
-    },
-    {
-        type: 'input',
-        name: 'name',
-        message: 'Please enter your name.',
-     },
-     {
-        type: 'numbers',
-        name: 'id',
-        message: 'Please enter your id number.',
-     },
-     {
-        type: 'input',
-        name: 'email',
-        message: 'Please enter your email.',
-     },
-     {
-        type: 'list',
-        name: 'position',
-        message: 'What is your position?',
-        choices: ["Manager", 'Engineer', 'Intern'],
-        default: 'Engineer',
-     },
+const allQuestions = [{
+      type: 'confirm',
+      message: 'Are you an employee?',
+      name: 'employee',
+   },
+   {
+      type: 'input',
+      name: 'name',
+      message: 'Please enter your name.',
+   },
+   {
+      type: 'numbers',
+      name: 'id',
+      message: 'Please enter your id number.',
+   },
+   {
+      type: 'input',
+      name: 'email',
+      message: 'Please enter your email.',
+   },
+   {
+      type: 'list',
+      name: 'position',
+      message: 'What is your position?',
+      choices: ["Manager", 'Engineer', 'Intern'],
+      default: 'Engineer',
+   },
 ]
 
 
 
-    inquirer.prompt(allQuestions).then((answers) => {
-        console.log(answers.employee);
-        console.log(answers.email);
-        console.log(answers.name);
-        console.log(answers.id);
-        console.log(answers.position);
+inquirer.prompt(allQuestions).then((answers) => {
+   console.log(answers.employee);
+   console.log(answers.email);
+   console.log(answers.name);
+   console.log(answers.id);
+   console.log(answers.position);
 
 
-//   console.log(JSON.stringify(answers, null, '  '));
+   //   console.log(JSON.stringify(answers, null, '  '));
 });
 
 
@@ -96,6 +96,31 @@ const allQuestions = [
 
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
+const Employee = require("./lib/employee")
+const fs = require("fs")
+// create a empty array of team members
+// make sure that its has its .legnth === 5
+
+
+let init() = () => {
+   // put inquierer in here
+   inquirer.prompt([{
+      // team manager’s name, employee ID, email address, and office number
+
+   }]).then((response) => {
+      const myNewEmployee = new
+
+   })
+}
+
+}
+
+
+
+init()
+
+
+
 
 // WHEN I enter the team manager’s name, employee ID, email address, and office number
 // THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
