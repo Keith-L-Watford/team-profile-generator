@@ -1,57 +1,80 @@
 const inquirer = require('inquirer');
 const fs = require('fs')
 const chalk = require('chalk');
-const Employee = require("./lib/employee")
 
-const firstQuestions = [{
-      type: 'confirm',
-      message: 'Are you an employee?',
-      name: 'employee',
-   },
-   {
-      type: 'input',
-      name: 'name',
-      message: 'Please enter your name.',
-   },
-   {
-      type: 'numbers',
-      name: 'id',
-      message: 'Please enter your id number.',
-   },
-   {
-      type: 'input',
-      name: 'email',
-      message: 'Please enter your email.',
-   },
-   {
-      type: 'list',
-      name: 'position',
-      message: 'What is your position?',
-      choices: ["Manager", 'Engineer', 'Intern'],
-      default: 'Engineer',
-   },
-]
+const Manager = require("./lib/manager")
 
+// const firstQuestions = [
+//    {
+//       type: 'input',
+//       name: 'name',
+//       message: 'Please enter your name.',
+//    },
+//    {
+//       type: 'numbers',
+//       name: 'id',
+//       message: 'Please enter your office number.',
+//    },
+//    {
+//       type: 'input',
+//       name: 'email',
+//       message: 'Please enter your email.',
+//    },
+//    {
+//       type: 'list',
+//       name: 'position',
+//       message: 'What is your position?',
+//       choices: ["Manager", 'Engineer', 'Intern'],
+//       default: 'Engineer',
+//    },
+// ]
 
 let myTeam = []
 
+// function employee(name, id, email) {
+//    this.name = name;
+//    this.id = id;
+//    this.email = email;
+//  }
+
 let init = () => {
    // put inquierer in here
-   inquirer.prompt([{
+   inquirer.prompt([
       // team manager’s name, employee ID, email address, and office number
 
-   }]).then((response) => {
-      // const myNewEmployee = new
-
+      {
+         type: 'input',
+         name: 'name',
+         message: 'Please enter your name.',
+      },
+      {
+         type: 'numbers',
+         name: 'id',
+         message: 'Please enter your office number.',
+      },
+      {
+         type: 'input',
+         name: 'email',
+         message: 'Please enter your email.',
+      },
+      {
+         type: 'input',
+         name: 'office',
+         message: 'Please enter your office number',
+      }
+   ]).then((dataOne) => {
+      const managerInfo = new Manager(dataOne.name, dataOne.id, dataOne.email, dataOne.office)
+      console.log(managerInfo);
    })
+
+
+
+
+
+
+
+
 }
-
-inquirer.prompt(allQuestions).then((answers) => {
-   
-
-
-});
-
 
 
 
@@ -85,7 +108,6 @@ inquirer.prompt(allQuestions).then((answers) => {
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 
-const fs = require("fs")
 // create a empty array of team members
 // make sure that its has its .legnth === 5
 
@@ -110,3 +132,12 @@ init()
 
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
+
+
+// {
+//    type: 'list',
+//    name: 'position',
+//    message: 'What is your position?',
+//    choices: ["Manager", 'Engineer', 'Intern'],
+//    default: 'Engineer',
+// }
