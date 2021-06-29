@@ -79,6 +79,7 @@ let init = () => {
       // console.log(theTeam);
 
       createTeam()
+
       function createTeam() {
          inquirer.prompt([{
             type: 'list',
@@ -92,6 +93,7 @@ let init = () => {
             if (teamRole.teamRole == 'Engineer') {
                // BLAH BLAH ENGINEER QUESTIONS
                addEngineer()
+
                function addEngineer() {
                   inquirer.prompt([{
                         type: 'input',
@@ -116,7 +118,7 @@ let init = () => {
                   ]).then((engineerData) => {
                      const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github)
                      theTeam.push(engineer)
-                     console.log(engineer);
+                     // console.log(engineer);
                      console.log(theTeam)
 
                      createTeam()
@@ -125,6 +127,7 @@ let init = () => {
             } else if (teamRole.teamRole === 'Intern') {
                // BLAH BLAH INTERN
                addIntern()
+
                function addIntern() {
                   inquirer.prompt([{
                         type: 'input',
@@ -149,30 +152,22 @@ let init = () => {
                   ]).then((internData) => {
                      const intern = new Intern(internData.name, internData.id, internData.email, internData.school)
                      theTeam.push(intern)
-                     console.log(intern);
+                     // console.log(intern);
                      console.log(theTeam)
 
                      createTeam()
-
-
-
-                     
                   })
                }
-
-
-
-          
             } else {
                // EXIT THIS HELL LOOP & Write the HTML
 
-
+               const html = ``
+               fs.writeFile('./dist/index.html', html, (err) =>
+                  err ? console.error(err) : console.log('Success!')
+               );
             }
          })
-
       }
-
-
    })
 
 
