@@ -208,7 +208,7 @@ let init = () => {
    </div>
 </body>
 </html>`
-               fs.writeFile('./dist/index.html', htmlTemplate, (err) =>
+               fs.writeFile('./CreatedHTMLs/index.html', htmlTemplate, (err) =>
                   err ? console.error(err) : console.log('Success!')
                );
             }
@@ -218,9 +218,7 @@ let init = () => {
 }
 
 
-
-
-
+init()
 
 
 
@@ -238,17 +236,6 @@ let init = () => {
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 
 // create a empty array of team members
-// make sure that its has its .legnth === 5
-
-
-
-
-
-
-init()
-
-
-
 
 // WHEN I enter the team manager’s name, employee ID, email address, and office number
 // THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
@@ -261,12 +248,3 @@ init()
 
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
-
-
-// {
-//    type: 'list',
-//    name: 'position',
-//    message: 'What is your position?',
-//    choices: ["Manager", 'Engineer', 'Intern'],
-//    default: 'Engineer',
-// }
