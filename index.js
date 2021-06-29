@@ -89,9 +89,9 @@ let init = () => {
             default: 'Engineer',
             },
          ]).then((teamRole) => {
-            if (condition) {
+            if (teamRole === 'Engineer') {
                // BLAH BLAH ENGINEER
-            } else if(condition) {
+            } else if(teamRole === 'Intern') {
                // BLAH BLAH INTER
             } else {
                // EXIT THIS HELL LOOP
