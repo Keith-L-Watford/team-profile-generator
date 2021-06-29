@@ -153,13 +153,16 @@ let init = () => {
                      console.log(theTeam)
 
                      createTeam()
+
+
+
+                     
                   })
                }
 
 
 
-               const intern = new Intern(internData.name, internData.id, internData.email, internData.school)
-               theTeam.push(intern)
+          
             } else {
                // EXIT THIS HELL LOOP & Write the HTML
 
