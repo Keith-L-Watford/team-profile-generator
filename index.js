@@ -161,11 +161,9 @@ let init = () => {
                }
             } else {
                // EXIT THIS HELL LOOP & Write the HTML
-
-
                function renderTeam(theTeam) {
                   const theFinalTeam = theTeam.map((employee) =>
-                  `
+                     `
                   <div class="card" style="width: 18rem;">
                     <div class="card-header">
                         ${employee.role}
@@ -177,12 +175,9 @@ let init = () => {
                         <li class="list-group-item">${employee.special}</li>
                     </ul>
                 </div>
-
                   `);
                   return theFinalTeam
                }
-
-
 
                const htmlTemplate = ` 
 <!DOCTYPE html>
@@ -213,18 +208,6 @@ let init = () => {
       }
    })
 }
-
-
-
-
-
-
-
-
-// const customHTML;
-//     fs.writeFile('', customHTML, (err) =>
-//     err ? console.error(err) : console.log('Success!')
-// );
 
 
 
