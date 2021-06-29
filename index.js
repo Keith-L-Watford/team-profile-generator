@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const Employee = require('./lib/employee');
 
 // const firstQuestions = [
 //    {
@@ -61,7 +62,7 @@ let init = () => {
       },
       {
          type: 'input',
-         name: 'office',
+         name: 'special',
          message: 'Please enter your office number',
       }
       //    {
@@ -72,7 +73,7 @@ let init = () => {
       //    default: 'Engineer',
       // }
    ]).then((managerData) => {
-      const managerInfo = new Manager(managerData.name, managerData.id, managerData.email, managerData.office)
+      const managerInfo = new Manager(managerData.name, managerData.id, managerData.email, managerData.special)
       // console.log(managerInfo);
       // console.log(theTeam);
       theTeam.push(managerInfo)
@@ -112,11 +113,11 @@ let init = () => {
                      },
                      {
                         type: 'input',
-                        name: 'github',
+                        name: 'special',
                         message: "Please enter the Engineer's github username.",
                      }
                   ]).then((engineerData) => {
-                     const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github)
+                     const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.special)
                      theTeam.push(engineer)
                      // console.log(engineer);
                      console.log(theTeam)
@@ -146,11 +147,11 @@ let init = () => {
                      },
                      {
                         type: 'input',
-                        name: 'school',
-                        message: "Please enter the Intern's github school.",
+                        name: 'special',
+                        message: "Please enter the Intern's school.",
                      }
                   ]).then((internData) => {
-                     const intern = new Intern(internData.name, internData.id, internData.email, internData.school)
+                     const intern = new Intern(internData.name, internData.id, internData.email, internData.special)
                      theTeam.push(intern)
                      // console.log(intern);
                      console.log(theTeam)
@@ -161,22 +162,56 @@ let init = () => {
             } else {
                // EXIT THIS HELL LOOP & Write the HTML
 
-               const html = ``
-               fs.writeFile('./dist/index.html', html, (err) =>
+
+               function renderTeam(theTeam) {
+                  const theFinalTeam = theTeam.map((employee) =>
+                  `
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        ${employee.role}
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">${employee.name}</li>
+                        <li class="list-group-item">${employee.id}</li>
+                        <li class="list-group-item">${employee.email}</li>
+                        <li class="list-group-item">${employee.special}</li>
+                    </ul>
+                </div>
+
+                  `);
+                  return theFinalTeam
+               }
+
+
+
+               const htmlTemplate = ` 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>My Team</title>
+</head>
+
+<body>
+<h1 class="text-center">My Team!</h1>
+    <div class="container">
+      <div>${renderTeam(theTeam)}</div>
+   </div>
+</body>
+</html>`
+               fs.writeFile('./dist/index.html', htmlTemplate, (err) =>
                   err ? console.error(err) : console.log('Success!')
                );
             }
          })
       }
    })
-
-
-
-
-
-
-
-
 }
 
 
