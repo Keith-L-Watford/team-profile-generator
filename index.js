@@ -166,10 +166,10 @@ let init = () => {
                      `
                   <div class="card" style="width: 18rem;">
                     <div class="card-header">
-                        ${employee.role}
+                        ${employee.name}
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">${employee.name}</li>
+                        <li class="list-group-item">${employee.role}</li>
                         <li class="list-group-item">${employee.id}</li>
                         <li class="list-group-item">${employee.email}</li>
                         <li class="list-group-item">${employee.special}</li>
