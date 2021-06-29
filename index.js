@@ -6,6 +6,7 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Employee = require('./lib/employee');
+const { log } = require('console');
 
 // const firstQuestions = [
 //    {
@@ -73,7 +74,8 @@ let init = () => {
       //    default: 'Engineer',
       // }
    ]).then((managerData) => {
-      const managerInfo = new Manager(managerData.name, managerData.id, managerData.email, managerData.special)
+      let role = `Manager`
+      const managerInfo = new Manager(managerData.name, managerData.id, managerData.email, managerData.special, role)
       // console.log(managerInfo);
       // console.log(theTeam);
       theTeam.push(managerInfo)
@@ -117,7 +119,13 @@ let init = () => {
                         message: "Please enter the Engineer's github username.",
                      }
                   ]).then((engineerData) => {
-                     const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.special)
+
+                           console.log(engineerData.special);
+                           let github =  `https://github.com/${engineerData.special}/`
+                           let role = `Engineer`
+
+
+                     const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, github, role)
                      theTeam.push(engineer)
                      // console.log(engineer);
                      console.log(theTeam)
@@ -128,7 +136,6 @@ let init = () => {
             } else if (teamRole.teamRole === 'Intern') {
                // BLAH BLAH INTERN
                addIntern()
-
                function addIntern() {
                   inquirer.prompt([{
                         type: 'input',
@@ -150,12 +157,13 @@ let init = () => {
                         name: 'special',
                         message: "Please enter the Intern's school.",
                      }
-                  ]).then((internData) => {
-                     const intern = new Intern(internData.name, internData.id, internData.email, internData.special)
+                  ]).then((internData,) => {
+
+                     let role = `Intern`
+                     const intern = new Intern(internData.name, internData.id, internData.email, internData.special, role)
                      theTeam.push(intern)
                      // console.log(intern);
-                     console.log(theTeam)
-
+                     // console.log(theTeam)
                      createTeam()
                   })
                }
