@@ -2,7 +2,9 @@ const inquirer = require('inquirer');
 const fs = require('fs')
 const chalk = require('chalk');
 
-const Manager = require("./lib/manager")
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 
 // const firstQuestions = [
 //    {
@@ -70,8 +72,8 @@ let init = () => {
       default: 'Engineer',
    }
    ]).then((dataOne) => {
-      // const managerInfo = new Manager(dataOne.name, dataOne.id, dataOne.email, dataOne.office)
-      // console.log(managerInfo);
+      const managerInfo = new Manager(dataOne.name, dataOne.id, dataOne.email, dataOne.office)
+      console.log(managerInfo);
 
       // const role;
       let role = dataOne.role
