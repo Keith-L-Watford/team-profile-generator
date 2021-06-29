@@ -122,7 +122,7 @@ let init = () => {
                      createTeam()
                   })
                }
-            } else if (teamRole === 'Intern') {
+            } else if (teamRole.teamRole === 'Intern') {
                // BLAH BLAH INTERN
                addIntern()
                function addIntern() {
