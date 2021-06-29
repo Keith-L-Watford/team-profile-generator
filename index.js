@@ -52,7 +52,7 @@ let init = () => {
       {
          type: 'numbers',
          name: 'id',
-         message: 'Please enter your office number.',
+         message: 'Please enter your ID number.',
       },
       {
          type: 'input',
@@ -80,26 +80,93 @@ let init = () => {
 
       createTeam()
       function createTeam() {
-         inquirer.prompt([
-            {
+         inquirer.prompt([{
             type: 'list',
             name: 'teamRole',
             message: 'Would you like to add a team member?',
             choices: ['Engineer', 'Intern', '[Exit]'],
             default: 'Engineer',
-            },
-         ]).then((teamRole) => {
-            if (teamRole === 'Engineer') {
-               // BLAH BLAH ENGINEER
-            } else if(teamRole === 'Intern') {
-               // BLAH BLAH INTER
+         }]).then((teamRole) => {
+            if (teamRole == 'Engineer') {
+               // BLAH BLAH ENGINEER QUESTIONS
+               addEngineer()
+               function addEngineer() {
+                  inquirer.prompt([{
+                        type: 'input',
+                        name: 'name',
+                        message: "Please enter the Engineer's name.",
+                     },
+                     {
+                        type: 'numbers',
+                        name: 'id',
+                        message: "Please enter the Engineer's number.",
+                     },
+                     {
+                        type: 'input',
+                        name: 'email',
+                        message: "Please enter the Engineer's email.",
+                     },
+                     {
+                        type: 'input',
+                        name: 'github',
+                        message: "Please enter the Engineer's github username.",
+                     }
+                  ]).then((engineerData) => {
+                     const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github)
+                     theTeam.push(engineer)
+                     console.log(engineer);
+                     console.log(theTeam)
+
+                     createTeam()
+                  })
+               }
+            } else if (teamRole === 'Intern') {
+               // BLAH BLAH INTERN
+               addIntern()
+               function addIntern() {
+                  inquirer.prompt([{
+                        type: 'input',
+                        name: 'name',
+                        message: "Please enter the Intern's name.",
+                     },
+                     {
+                        type: 'numbers',
+                        name: 'id',
+                        message: "Please enter the Interns's number.",
+                     },
+                     {
+                        type: 'input',
+                        name: 'email',
+                        message: "Please enter the Interns's email.",
+                     },
+                     {
+                        type: 'input',
+                        name: 'school',
+                        message: "Please enter the Intern's github school.",
+                     }
+                  ]).then((internData) => {
+                     const intern = new Intern(internData.name, internData.id, internData.email, internData.school)
+                     theTeam.push(intern)
+                     console.log(intern);
+                     console.log(theTeam)
+
+                     createTeam()
+                  })
+               }
+
+
+
+               const intern = new Intern(internData.name, internData.id, internData.email, internData.school)
+               theTeam.push(intern)
             } else {
-               // EXIT THIS HELL LOOP
+               // EXIT THIS HELL LOOP & Write the HTML
+
+
             }
          })
 
       }
-      
+
 
    })
 
