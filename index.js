@@ -87,7 +87,9 @@ let init = () => {
             choices: ['Engineer', 'Intern', '[Exit]'],
             default: 'Engineer',
          }]).then((teamRole) => {
-            if (teamRole == 'Engineer') {
+            // this is what messed me up, i needed the parameter and the name "teamRole" to bring engineer or intern through.
+            // AHHHHHH YES! :)
+            if (teamRole.teamRole == 'Engineer') {
                // BLAH BLAH ENGINEER QUESTIONS
                addEngineer()
                function addEngineer() {
