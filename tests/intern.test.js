@@ -3,9 +3,9 @@ const Intern = require("../lib/intern");
 
  describe('Intern', () => {
     describe('init', () => {
-        it('should create new employee object if given valid arguments', () => {
+        it('should create new intern object if given valid arguments', () => {
             //  Arrange
-            const testIntern = new Intern ("John", 213, "email@email.com", "Upenn" )
+            const testIntern = new Intern ("John", 213, "email@email.com", "Upenn")
             //  Act
             //  Assert
             expect(testIntern.name).toEqual("John");
