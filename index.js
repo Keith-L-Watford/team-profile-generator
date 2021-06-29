@@ -31,7 +31,7 @@ const Intern = require("./lib/intern");
 //    },
 // ]
 
-let myTeam = []
+let theTeam = []
 
 // function employee(name, id, email) {
 //    this.name = name;
@@ -59,32 +59,47 @@ let init = () => {
          name: 'email',
          message: 'Please enter your email.',
       },
-      // {
-      //    type: 'input',
-      //    name: 'office',
-      //    message: 'Please enter your office number',
-      // },
       {
-      type: 'list',
-      name: 'position',
-      message: 'What is your position?',
-      choices: ["Manager", 'Engineer', 'Intern'],
-      default: 'Engineer',
-   }
-   ]).then((dataOne) => {
-      const managerInfo = new Manager(dataOne.name, dataOne.id, dataOne.email, dataOne.office)
-      console.log(managerInfo);
-
-      // const role;
-      let role = dataOne.role
-
-      if (role === "Manager") {
-         inquirer.prompt([{
          type: 'input',
          name: 'office',
-         message: 'Please enter your office number',}])
-      } 
+         message: 'Please enter your office number',
+      }
+      //    {
+      //    type: 'list',
+      //    name: 'position',
+      //    message: 'What is your position?',
+      //    choices: ["Manager", 'Engineer', 'Intern'],
+      //    default: 'Engineer',
+      // }
+   ]).then((managerData) => {
+      const managerInfo = new Manager(managerData.name, managerData.id, managerData.email, managerData.office)
+      // console.log(managerInfo);
+      // console.log(theTeam);
+      theTeam.push(managerInfo)
+      // console.log(theTeam);
 
+      createTeam()
+      function createTeam() {
+         inquirer.prompt([
+            {
+            type: 'list',
+            name: 'teamRole',
+            message: 'Would you like to add a team member?',
+            choices: ['Engineer', 'Intern', '[Exit]'],
+            default: 'Engineer',
+            },
+         ]).then((teamRole) => {
+            if (condition) {
+               // BLAH BLAH ENGINEER
+            } else if(condition) {
+               // BLAH BLAH INTER
+            } else {
+               // EXIT THIS HELL LOOP
+            }
+         })
+
+      }
+      
 
    })
 
